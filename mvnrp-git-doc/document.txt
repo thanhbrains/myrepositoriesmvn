@@ -1,0 +1,3 @@
+Reference:
+http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
+https://www.javacodegeeks.com/2014/09/hosting-a-maven-repository-on-github-with-sources-and-javadoc.html
