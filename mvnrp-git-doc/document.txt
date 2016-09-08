@@ -1,9 +1,10 @@
 Reference:
 http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
 https://www.javacodegeeks.com/2014/09/hosting-a-maven-repository-on-github-with-sources-and-javadoc.html
+https://github.com/github/maven-plugins
 
-Create repository -> create branch (ex: maven-repo)
-Config deploy:
+#Create repository -> create branch (ex: maven-repo)
+#Config deploy:
 I: setting.xml
   </servers>
     <server>
@@ -38,7 +39,7 @@ II: pom.xml
           <plugin>
               <groupId>com.github.github</groupId>
               <artifactId>site-maven-plugin</artifactId>
-              <version>0.11</version>
+              <version>0.12</version>
               <configuration>
                   <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
                   <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
@@ -47,6 +48,7 @@ II: pom.xml
                   <includes><include>**/*</include></includes>
                   <repositoryName>YOUR-REPOSITORY-NAME</repositoryName>      <!-- github repo name -->
                   <repositoryOwner>YOUR-GITHUB-USERNAME</repositoryOwner>    <!-- github username  -->
+                  <userName>thanhttx</userName>
               </configuration>
               <executions>
                 <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
@@ -60,4 +62,52 @@ II: pom.xml
           </plugin>
       </plugins>
   </build>
-   
+  <properties>
+		<github.global.server>github</github.global.server>
+	</properties>
+	
+	--Deploy source--
+	Configure maven-source-plugin
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-source-plugin</artifactId>
+		<version>2.3</version>
+		<executions>
+			<execution>
+				<id>attach-sources</id>
+				<goals>
+					<goal>jar</goal>
+				</goals>
+			</execution>
+		</executions>
+	</plugin>
+	--Deploy java doc--
+	Configure maven-javadoc-plugin
+
+#Config use:
+<repositories>
+  <repository>
+    <id>PROJECT-NAME-mvn-repo</id>
+    <url>https://raw.github.com/USERNAME/PROJECT-NAME/mvn-repo/</url>
+    <snapshots>
+      <enabled>true</enabled>
+      <updatePolicy>always</updatePolicy>
+    </snapshots>
+  </repository>
+</repositories>
+
+
+Issue:
+
+Nếu gặp lỗi 
+Error creating commit: Invalid request
+Expected data to be of type "object"; value was: nil.
+name hoặc email
+
+Thì check out : https://github.com/github/maven-plugins
+Edit class com.github.maven.plugins.site.SiteMojo tại commiter thành
+
+    CommitUser author = new CommitUser();
+    author.setName(userName);
+    author.setEmail(userService.getEmails().get(0));
+    author.setDate(new GregorianCalendar().getTime());
