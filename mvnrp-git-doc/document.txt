@@ -106,8 +106,10 @@ name hoặc email
 
 Thì check out : https://github.com/github/maven-plugins
 Edit class com.github.maven.plugins.site.SiteMojo tại commiter thành
+(https://github.com/github/maven-plugins/blob/master/github-site-plugin/src/main/java/com/github/maven/plugins/site/SiteMojo.java)
 
     CommitUser author = new CommitUser();
     author.setName(userName);
     author.setEmail(userService.getEmails().get(0));
     author.setDate(new GregorianCalendar().getTime());
+và dùng version vừa build
