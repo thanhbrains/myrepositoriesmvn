@@ -88,7 +88,7 @@ II: pom.xml
 <repositories>
   <repository>
     <id>PROJECT-NAME-mvn-repo</id>
-    <url>https://raw.github.com/USERNAME/PROJECT-NAME/mvn-repo/</url>
+    <url>https://raw.github.com/USERNAME/PROJECT-NAME/mvn-repo/</url> <!-- raw.github.com/username/repositoryname/branch -->
     <snapshots>
       <enabled>true</enabled>
       <updatePolicy>always</updatePolicy>
