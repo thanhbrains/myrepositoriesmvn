@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.github.github</groupId>
+  <artifactId>site-maven-plugin</artifactId>
+  <version>0.13-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20160909.001753</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20160909001753</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>0.13-20160909.001753-1</value>
+        <updated>20160909001753</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.13-20160909.001753-1</value>
+        <updated>20160909001753</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <classifier>javadoc</classifier>
+        <extension>jar</extension>
+        <value>0.13-20160909.001753-1</value>
+        <updated>20160909001753</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <classifier>sources</classifier>
+        <extension>jar</extension>
+        <value>0.13-20160909.001753-1</value>
+        <updated>20160909001753</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
