@@ -113,3 +113,29 @@ Edit class com.github.maven.plugins.site.SiteMojo tại commiter thành
     author.setEmail(userService.getEmails().get(0));
     author.setDate(new GregorianCalendar().getTime());
 và dùng version vừa build
+
+
+
+Build local jar:
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-install-plugin</artifactId>
+	<version>2.5.1</version>
+	<configuration>
+		<groupId>com.microsoft</groupId>
+		<artifactId>sqljdbc</artifactId>
+		<version>4.0</version>
+		<packaging>jar</packaging>
+		<file>${basedir}/lib/sqljdbc4.jar</file>
+		<generatePom>true</generatePom>
+	</configuration>
+	<executions>
+		<execution>
+			<id>install-jar-lib</id>
+			<goals>
+				<goal>install-file</goal>
+			</goals>
+			<phase>clean</phase>
+		</execution>
+	</executions>
+</plugin>
